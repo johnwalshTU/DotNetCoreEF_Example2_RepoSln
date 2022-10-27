@@ -10,6 +10,7 @@ namespace DotNetCoreEF_Example2_Repo.Repository
     public class RealSqlDB : IRepository
     {
         StudentContext ct;
+
         public RealSqlDB()
         {
             ct = new StudentContext();
@@ -20,7 +21,8 @@ namespace DotNetCoreEF_Example2_Repo.Repository
             if (ct != null) ct.Dispose();
         }
 
-
+        #region "IRepository Interface methods"
+ 
         public void AddStudent(Student s)
         {
             ct.Students.Add(s);
@@ -32,5 +34,7 @@ namespace DotNetCoreEF_Example2_Repo.Repository
         {
             return ct.Students.ToList();
         }
+
+        #endregion
     }
 }

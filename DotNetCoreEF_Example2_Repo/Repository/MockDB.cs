@@ -9,7 +9,7 @@ namespace DotNetCoreEF_Example2_Repo.Repository
 {
     /// <summary>
     ///  MockDB is just a dummy DB we can use, instaed of a real DB for tesitng
-    ///  Its useful in real life development, where the Databse might not be set up yet
+    ///  Its useful in real life development, where the Database might not be set up yet
     ///  Its also useful for unit-testing as we dont want to use real Db for our 
     ///  unit tests (we are not testing the DB!! we are testing the query methods!)
     /// </summary>
@@ -19,16 +19,21 @@ namespace DotNetCoreEF_Example2_Repo.Repository
         private static List<Student> Students = new List<Student>();
 
 
+        #region "IRepository Interface methods"
+
         public void AddStudent(Student s)
         {
-            //you should  add code here to ensure you are not adding student that exists alread,
+            //you should  add code here to ensure you are not adding student that exists already,
             //but for simplicity i'm leaving this out for moment
             Students.Add(s);            
         }
+
 
         public List<Student> GetStudents()
         {
             return Students.ToList();
         }
+
+        #endregion
     }
 }
